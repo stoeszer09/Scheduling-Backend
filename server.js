@@ -12,9 +12,17 @@ app.use(cors())
 const usersController = require('./controllers/usersController')
 app.use('/users', usersController)
 
+const scheduleController = require('./controllers/scheduleController')
+app.use('/schedules', scheduleController)
+
 app.get("/", (req, res) => {
   console.log("root url");
   res.send("Hello Word!");
+})
+
+app.get("*", (req, res) => {
+  console.log("root url");
+  res.status(404).send('You don messed up.');
 })
 
 // LISTEN
