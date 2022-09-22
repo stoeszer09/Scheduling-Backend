@@ -9,6 +9,9 @@ app.use(express.json())
 app.use(cors())
 
 // ROUTES
+const usersController = require('./controllers/usersController')
+app.use('/users', usersController)
+
 app.get("/", (req, res) => {
   console.log("root url");
   res.send("Hello Word!");
